@@ -17,6 +17,7 @@ public class PlayerCtrl : MonoBehaviour {
     public float movePower = 100.0f;
 
     public Text gameOverText;
+    public AudioClip gameOverSfx;
 
 	// Use this for initialization
 	void Awake () {
@@ -64,6 +65,7 @@ public class PlayerCtrl : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         gameOverText.gameObject.SetActive(true);
+        GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
     }
 
 }
