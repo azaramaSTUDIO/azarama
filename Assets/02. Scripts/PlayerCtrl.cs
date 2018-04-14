@@ -16,6 +16,9 @@ public class PlayerCtrl : MonoBehaviour {
 
     public float movePower = 100.0f;
 
+    private int score;
+    public Text scoreText;
+    private bool gameOver;
     public Text gameOverText;
     public AudioClip gameOverSfx;
 
@@ -26,6 +29,8 @@ public class PlayerCtrl : MonoBehaviour {
 
     private void Start()
     {
+        score = 0;
+        gameOver = false;
         if (controlMode == ControlMode.mode3)
         {
             rb.useGravity = false;
@@ -56,14 +61,20 @@ public class PlayerCtrl : MonoBehaviour {
             case ControlMode.mode3:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    rb.velocity *= -1.0f; 
+                    rb.velocity *= -1.0f;
                 }
                 break;
+        }
+        if (gameOver == false)
+        {
+            score++;
+            scoreText.text = score.ToString();
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        gameOver = true;
         gameOverText.gameObject.SetActive(true);
         GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
     }
