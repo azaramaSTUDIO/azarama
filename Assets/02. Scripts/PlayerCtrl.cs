@@ -16,7 +16,7 @@ public class PlayerCtrl : MonoBehaviour {
 
     public float movePower = 100.0f;
 
-    private int score;
+    private float score;
     public Text scoreText;
     private bool gameOver;
     public Text gameOverText;
@@ -67,7 +67,7 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if (gameOver == false)
         {
-            score++;
+            score += (Time.deltaTime * 10);
             scoreText.text = score.ToString();
         }
     }
