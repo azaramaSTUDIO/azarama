@@ -67,7 +67,7 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if (gameOver == false)
         {
-            score += (Time.deltaTime * 10);
+            score += (int)(Time.deltaTime * 100);
             scoreText.text = score.ToString();
         }
     }
