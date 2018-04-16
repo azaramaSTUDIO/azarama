@@ -20,7 +20,7 @@ public class PlayerCtrl : MonoBehaviour {
     public Text scoreText;
     private bool gameOver;
     public Text gameOverText;
-    public AudioClip gameOverSfx;
+    public AudioClip gameOverSfx, coinSfx;
 
 	// Use this for initialization
 	void Awake () {
@@ -78,6 +78,7 @@ public class PlayerCtrl : MonoBehaviour {
         if (other.gameObject.CompareTag("Coin"))
         {
             score += 100;
+            GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             Destroy(other.gameObject);
         }
     }
