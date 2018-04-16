@@ -937,6 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlMode: 3
   movePower: 150
+  rotSpeed: 5
   scoreText: {fileID: 1836005682}
   gameOverText: {fileID: 1722350127}
   gameOverSfx: {fileID: 8300000, guid: 2a1d49e7617285049a11599fb59e03b1, type: 3}

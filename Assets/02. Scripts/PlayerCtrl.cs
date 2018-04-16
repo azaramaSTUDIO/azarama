@@ -15,6 +15,7 @@ public class PlayerCtrl : MonoBehaviour {
     private Vector3 move = Vector3.right;
 
     public float movePower = 100.0f;
+    public float rotSpeed = 5.0f;
 
     private float score;
     public Text scoreText;
@@ -36,6 +37,7 @@ public class PlayerCtrl : MonoBehaviour {
             rb.useGravity = false;
             rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
         }
+        rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
     }
 
     // Update is called once per frame
