@@ -72,18 +72,22 @@ public class PlayerCtrl : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Coin"))
         {
             score += 100;
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
-        else if(collision.gameObject.CompareTag("Enemy"))
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-        gameOver = true;
-        gameOverText.gameObject.SetActive(true);
-        GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
+            gameOver = true;
+            gameOverText.gameObject.SetActive(true);
+            GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
         }
     }
 
