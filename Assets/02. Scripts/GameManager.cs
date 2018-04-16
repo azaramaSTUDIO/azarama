@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public static GameManager instance;
     public GameObject Pipes;
-    public float spawnTime = 3.0f;
+    public GameObject Coin;
+    public float spawnTime = 1.0f;
 
     public float sfxVolume = 0.9f; // 효과음 음량
     public bool isSfxMute = false; // 효과음 음소거 여부 설정
@@ -65,8 +66,20 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-2.0f, 2.0f), 0, 0);
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
             GameObject obj1 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+            yield return new WaitForSeconds(spawnTime);
+
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            GameObject obj2 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+            yield return new WaitForSeconds(spawnTime);
+
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            GameObject obj3 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+            yield return new WaitForSeconds(spawnTime);
+
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            GameObject obj4 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
         }
     }
