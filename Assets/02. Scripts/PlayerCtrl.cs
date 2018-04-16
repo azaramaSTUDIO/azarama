@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum ControlMode { mode1, mode2, mode3 };
+enum ControlMode { mode1, mode2, mode3, mode4 };
 
 public class PlayerCtrl : MonoBehaviour {
 
@@ -41,29 +41,30 @@ public class PlayerCtrl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        switch (controlMode)
+        if (Input.GetMouseButtonDown(0))
         {
-            case ControlMode.mode1:
-                if (Input.GetMouseButtonDown(0))
-                {
+            switch (controlMode)
+            {
+                case ControlMode.mode1:
                     rb.velocity = Vector3.zero;
                     rb.AddForce(move * movePower);
-                }
-                break;
+                    break;
 
-            case ControlMode.mode2:
-                if (Input.GetMouseButtonDown(0))
-                {
+                case ControlMode.mode2:
                     Physics.gravity *= -1.0f;
-                }
-                break;
+                    break;
 
-            case ControlMode.mode3:
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+                case ControlMode.mode3:
                     rb.velocity *= -1.0f;
-                }
-                break;
+                    break;
+
+                case ControlMode.mode4:
+                    rb.velocity = Vector3.zero;
+                    Physics.gravity *= -1.0f;
+                    movePower *= -1.0f;
+                    rb.AddForce(move * movePower);
+                    break;
+            }
         }
         if (gameOver == false)
         {
