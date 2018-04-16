@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-2.0f, 2.0f), 0, 0);
             GameObject obj1 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
         }
