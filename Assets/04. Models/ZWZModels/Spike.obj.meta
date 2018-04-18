@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 92d455e667540ab45a716baec73edb4f
-timeCreated: 1523249832
-licenseType: Pro
+guid: 607724fec3627b345873ba2b9f879e10
+timeCreated: 1524022540
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: dwfaavoid4
+    100000: Spike
     100002: //RootNode
-    400000: dwfaavoid4
+    400000: Spike
     400002: //RootNode
     2100000: palette
-    2300000: dwfaavoid4
-    3300000: dwfaavoid4
-    4300000: dwfaavoid4
+    2300000: Spike
+    3300000: Spike
+    4300000: Spike
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.05
+    globalScale: 0.4
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

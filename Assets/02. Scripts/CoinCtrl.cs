@@ -7,8 +7,6 @@ public class CoinCtrl : MonoBehaviour
 
     private Rigidbody rb;
 
-    public float speed = 1.0f;
-
     // Use this for initialization
     void Awake()
     {
@@ -17,7 +15,7 @@ public class CoinCtrl : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = Vector3.down * speed;
+        rb.velocity = Vector3.down * PlayerCtrl.speed;
     }
 
 

@@ -16,19 +16,23 @@ public class PlayerCtrl : MonoBehaviour {
 
     public float movePower = 100.0f;
     public float rotSpeed = 5.0f;
+    public static int score;
+    public static float speed;
 
-    private float score;
     public Text scoreText;
     private bool gameOver;
     public Text gameOverText;
+    public Text speedUp1;
     public Button gotoMainButton;
     public RawImage gameOverWhite;
     public AudioClip gameOverSfx, coinSfx;
 
-	// Use this for initialization
-	void Awake () {
+	// Use this for initializatio
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody>();
-	}
+        speed = 1.5f;
+    }
 
     private void Start()
     {
@@ -45,7 +49,7 @@ public class PlayerCtrl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             switch (controlMode)
             {
@@ -75,6 +79,10 @@ public class PlayerCtrl : MonoBehaviour {
             score += (int)(Time.deltaTime * 100);
             scoreText.text = score.ToString();
         }
+        if(score > 5000)
+        {
+            speed = 2.0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,6 +92,15 @@ public class PlayerCtrl : MonoBehaviour {
             score += 100;
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gameOver = true;
+            gameOverText.gameObject.SetActive(true);
+            gameOverWhite.gameObject.SetActive(true);
+            gotoMainButton.gameObject.SetActive(true);
+            GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
         }
     }
 

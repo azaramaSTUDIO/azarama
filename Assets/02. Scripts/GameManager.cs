@@ -6,9 +6,13 @@ public class GameManager : MonoBehaviour
 {
 
     public Transform spawnPoint;
+    public Transform spikeSpawnPoint;
+    public Transform stoneSpawn;
     public static GameManager instance;
     public GameObject Pipes;
     public GameObject Coin;
+    public GameObject Spikes;
+    public GameObject Stone;
     public float spawnTime = 1.0f;
 
     public float sfxVolume = 0.9f; // 효과음 음량
@@ -66,19 +70,25 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj1 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+            GameObject obj5 = Instantiate(Spikes, spikeSpawnPoint.position, spikeSpawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
 
-            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj2 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
 
-            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj3 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+            if(PlayerCtrl.score > 1000)
+            {
+                stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                GameObject obj6 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+            }
             yield return new WaitForSeconds(spawnTime);
 
-            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-1.0f, 1.0f), 0, 0);
+            spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj4 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
         }
