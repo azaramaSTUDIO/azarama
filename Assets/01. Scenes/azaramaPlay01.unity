@@ -332,12 +332,16 @@ Prefab:
     - target: {fileID: 136743749677059560, guid: 06e21e4bacc57d14e869a617b0aeae9e,
         type: 2}
       propertyPath: m_Center.x
-      value: 3.14
+      value: 5.14
       objectReference: {fileID: 0}
     - target: {fileID: 136743749677059560, guid: 06e21e4bacc57d14e869a617b0aeae9e,
         type: 2}
       propertyPath: m_Height
       value: 5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495182949166644, guid: 06e21e4bacc57d14e869a617b0aeae9e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06e21e4bacc57d14e869a617b0aeae9e, type: 2}
@@ -1211,7 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlMode: 3
-  movePower: 150
+  movePower: 5
   rotSpeed: 5
   scoreText: {fileID: 1836005682}
   gameOverText: {fileID: 1722350127}
