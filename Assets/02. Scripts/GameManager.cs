@@ -70,15 +70,18 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
+            spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj1 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
             GameObject obj5 = Instantiate(Spikes, spikeSpawnPoint.position, spikeSpawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
 
+            spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj2 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
 
+            spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj3 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             if(PlayerCtrl.score > 1000)
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour
             }
             yield return new WaitForSeconds(spawnTime);
 
+            spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj4 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
