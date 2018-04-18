@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
+    public void GoToMainScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1); // azaramaPlay01 씬 로드

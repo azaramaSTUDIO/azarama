@@ -21,6 +21,7 @@ public class PlayerCtrl : MonoBehaviour {
     public Text scoreText;
     private bool gameOver;
     public Text gameOverText;
+    public Button gotoMainButton;
     public AudioClip gameOverSfx, coinSfx;
 
 	// Use this for initialization
@@ -91,6 +92,7 @@ public class PlayerCtrl : MonoBehaviour {
         {
             gameOver = true;
             gameOverText.gameObject.SetActive(true);
+            gotoMainButton.gameObject.SetActive(true);
             GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
         }
     }
