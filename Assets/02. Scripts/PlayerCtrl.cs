@@ -17,9 +17,11 @@ public class PlayerCtrl : MonoBehaviour {
     public float movePower = 100.0f;
     public float rotSpeed = 5.0f;
     public static int score;
+    public static int life;
     public static float speed;
 
     public Text scoreText;
+    public Text lifeText;
     private bool gameOver;
     public Text gameOverText;
     public Text speedUp1;
@@ -37,6 +39,7 @@ public class PlayerCtrl : MonoBehaviour {
     private void Start()
     {
         score = 0;
+        life = 3;
         gameOver = false;
         if (controlMode == ControlMode.mode3)
         {
@@ -107,6 +110,11 @@ public class PlayerCtrl : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
+        {
+            life -= 1;
+            lifeText.text = life.ToString();
+        }
+        if(life == 0)
         {
             gameOver = true;
             gameOverText.gameObject.SetActive(true);

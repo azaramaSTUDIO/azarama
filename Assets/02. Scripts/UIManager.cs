@@ -24,4 +24,9 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene(1); // azaramaPlay01 씬 로드
     }
+
+    public void StoryRead()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
