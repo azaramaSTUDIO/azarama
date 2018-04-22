@@ -94,6 +94,15 @@ public class PlayerCtrl : MonoBehaviour {
         if (other.gameObject.CompareTag("Coin"))
         {
             score += 100;
+            scoreText.text = score.ToString();
+            GameManager.instance.PlaySfx(other.transform.position, coinSfx);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Heart"))
+        {
+            life++;
+            lifeText.text = life.ToString();
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             Destroy(other.gameObject);
         }
