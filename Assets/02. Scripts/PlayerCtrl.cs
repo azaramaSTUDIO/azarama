@@ -109,6 +109,16 @@ public class PlayerCtrl : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            life -= 1;
+            lifeText.text = life.ToString();
+            {
+                rb.useGravity = false;
+                rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
+            }
+            rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
+        }
+        if (life == 0)
+        {
             gameOver = true;
             gameOverText.gameObject.SetActive(true);
             gameOverWhite.gameObject.SetActive(true);
@@ -129,7 +139,7 @@ public class PlayerCtrl : MonoBehaviour {
             }
             rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
         }
-        if(life == 0)
+        if (life == 0)
         {
             gameOver = true;
             gameOverText.gameObject.SetActive(true);
