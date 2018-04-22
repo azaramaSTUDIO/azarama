@@ -40,6 +40,7 @@ public class PlayerCtrl : MonoBehaviour {
     {
         score = 0;
         life = 3;
+        lifeText.text = life.ToString();
         gameOver = false;
         if (controlMode == ControlMode.mode3)
         {
@@ -113,6 +114,11 @@ public class PlayerCtrl : MonoBehaviour {
         {
             life -= 1;
             lifeText.text = life.ToString();
+            {
+                rb.useGravity = false;
+                rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
+            }
+            rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
         }
         if(life == 0)
         {
