@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum ControlMode { mode1, mode2, mode3, mode4 };
-
 public class PlayerCtrl : MonoBehaviour {
 
-    [SerializeField] // (고급기술) private 변수이지만 인스펙터뷰에 나타나게 해줌
-    private ControlMode controlMode = ControlMode.mode1;
+    private int controlMode;
 
     private Rigidbody rb;
 
@@ -31,6 +28,8 @@ public class PlayerCtrl : MonoBehaviour {
     public AudioClip gameOverSfx, coinSfx;
     public Text finalScoreText;
 
+    public GameObject[] characters;
+
     // Use this for initializatio
     private void Awake()
     {
@@ -40,11 +39,15 @@ public class PlayerCtrl : MonoBehaviour {
 
     private void Start()
     {
+        Debug.Log("Game Character is " + PlayerPrefs.GetInt("Character"));
+        controlMode = PlayerPrefs.GetInt("Character");
+        Instantiate(characters[PlayerPrefs.GetInt("Character")], gameObject.GetComponent<Transform>());
+            
         score = 0;
         life = 3;
         lifeText.text = life.ToString();
         gameOver = false;
-        if (controlMode == ControlMode.mode3)
+        if (controlMode == 2)
         {
             rb.useGravity = false;
             rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
@@ -60,20 +63,20 @@ public class PlayerCtrl : MonoBehaviour {
         {
             switch (controlMode)
             {
-                case ControlMode.mode1:
+                case 0:
                     rb.velocity = Vector3.zero;
                     rb.AddForce(move * movePower);
                     break;
 
-                case ControlMode.mode2:
+                case 1:
                     Physics.gravity *= -1.0f;
                     break;
 
-                case ControlMode.mode3:
+                case 2:
                     rb.velocity *= -1.0f;
                     break;
 
-                case ControlMode.mode4:
+                case 3:
                     rb.velocity = Vector3.zero;
                     Physics.gravity *= -1.0f;
                     if (Physics.gravity.x > 0)

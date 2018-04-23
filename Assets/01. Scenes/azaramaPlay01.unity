@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44658017, g: 0.49641502, b: 0.57482153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1558,7 +1558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b459a1ac34f6b7f4695f0bc6a2fe966b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlMode: 3
   movePower: 150
   rotSpeed: 5
   scoreText: {fileID: 1836005682}
@@ -1570,6 +1569,11 @@ MonoBehaviour:
   gameOverSfx: {fileID: 8300000, guid: 2a1d49e7617285049a11599fb59e03b1, type: 3}
   coinSfx: {fileID: 8300000, guid: 4e82ccd3339376744a308ecf64db6f78, type: 3}
   finalScoreText: {fileID: 0}
+  characters:
+  - {fileID: 2100000, guid: 98e697118a620e24bb455209e5d657ff, type: 3}
+  - {fileID: 2100000, guid: ec5856b70259c7e41bd0b93be2cbec22, type: 3}
+  - {fileID: 2100000, guid: 530f891b6d3bd0c4cb1a9a334b60d5b0, type: 3}
+  - {fileID: 2100000, guid: 236f14bab2aea4b4ea97e754584366fd, type: 3}
 --- !u!1001 &1282665550
 Prefab:
   m_ObjectHideFlags: 0
