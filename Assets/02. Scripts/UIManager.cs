@@ -34,4 +34,9 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene(3);
     }
+
+    public void Settings()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
