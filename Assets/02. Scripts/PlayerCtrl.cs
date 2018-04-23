@@ -135,6 +135,8 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if (collision.gameObject.CompareTag("GameOverTrap"))
         {
+            life = 0;
+            lifeText.text = life.ToString();
             GameManager.instance.GameOver();
         }
     }
