@@ -115,18 +115,20 @@ public class PlayerCtrl : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            life -= 1;
-            lifeText.text = life.ToString();
-            if (life <= 0) GameManager.instance.GameOver();
-        }
 
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            life -= 1;
+            lifeText.text = life.ToString();
+            if (life <= 0) GameManager.instance.GameOver();
+
+            //collision.gameObject.SetActive(false);
+        }
     }
 
 }
