@@ -112,8 +112,16 @@ public class GameManager : MonoBehaviour
             switch (spawnCase)
             {
                 case 0:
-                spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
-                GameObject obj2 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    if (PlayerCtrl.score > 10000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj17 = Instantiate(RedBall, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj2 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    }
                     break;
 
                 case 1:
@@ -141,7 +149,7 @@ public class GameManager : MonoBehaviour
                     }
                     break;
                 case 3:
-                    if (PlayerCtrl.score > 5000)
+                    if (PlayerCtrl.score > 10000)
                     {
                         stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
                         GameObject obj14 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
@@ -154,7 +162,7 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case 4:
-                    if (PlayerCtrl.score > 10000)
+                    if (PlayerCtrl.score > 5000)
                     {
                         stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
                         GameObject obj16 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
@@ -203,13 +211,29 @@ public class GameManager : MonoBehaviour
 
                     break;
                 case 12:
-                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
-                    GameObject obj5 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj19 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj5 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    }
                     break;
 
                 case 16:
-                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
-                    GameObject obj6 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj20 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj6 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    }
                     break;
 
                 case 19:
@@ -221,6 +245,22 @@ public class GameManager : MonoBehaviour
                 spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
                 GameObject obj1 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
                 break;
+            }
+            if (spawnPoint.position.x > 3)
+            {
+                spawnPoint.position = new Vector3(2, 10, 0);
+            }
+            if (spawnPoint.position.x < -3)
+            {
+                spawnPoint.position = new Vector3(-2, 10, 0);
+            }
+            if (stoneSpawn.position.x > 3)
+            {
+                stoneSpawn.position = new Vector3(2, 10, 0);
+            }
+            if (stoneSpawn.position.x < -3)
+            {
+                stoneSpawn.position = new Vector3(-2, 10, 0);
             }
             yield return new WaitForSeconds(spawnTime);
         }
