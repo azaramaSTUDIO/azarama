@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - Enemy
   - Heart
+  - GameOverTrap
   layers:
   - Default
   - TransparentFX

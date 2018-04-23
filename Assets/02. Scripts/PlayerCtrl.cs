@@ -133,6 +133,9 @@ public class PlayerCtrl : MonoBehaviour {
 
             //collision.gameObject.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("GameOverTrap"))
+        {
+            GameManager.instance.GameOver();
+        }
     }
-
 }

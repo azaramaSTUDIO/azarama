@@ -12,9 +12,8 @@ public class GameManager : MonoBehaviour
     public Transform spikeSpawnPoint;
     public Transform stoneSpawn;
     public static GameManager instance;
-    public GameObject Pipes;
+    public GameObject Pipes, RedBall;
     public GameObject Coin, Heart;
-    public GameObject Spikes;
     public GameObject Stone;
     public float spawnTime = 1.0f;
     public int spawnCase;
@@ -155,8 +154,42 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case 4:
-                spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
-                GameObject obj3 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    if (PlayerCtrl.score > 10000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj16 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj3 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    }
+                    break;
+
+                case 5:
+                    if (PlayerCtrl.score > 10000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj17 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj18 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                    }
+                    break;
+
+                case 6:
+                    if (PlayerCtrl.score > 10000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj17 = Instantiate(RedBall, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj18 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                    }
                     break;
 
                 case 8:
