@@ -14,6 +14,7 @@ public class PlayerCtrl : MonoBehaviour {
 
     private Vector3 move = Vector3.right;
 
+    bool speedUp_5000 = false;
     public float movePower = 100.0f;
     public float rotSpeed = 5.0f;
     public static int score;
@@ -24,7 +25,7 @@ public class PlayerCtrl : MonoBehaviour {
     public Text lifeText;
     private bool gameOver;
     public Text gameOverText;
-    public Text speedUp1;
+    public GameObject speedUpText;
     public Button gotoMainButton;
     public RawImage gameOverWhite;
     public AudioClip gameOverSfx, coinSfx;
@@ -98,6 +99,11 @@ public class PlayerCtrl : MonoBehaviour {
         if(score > 5000)
         {
             speed = 2.0f;
+            StartCoroutine(SpeedUp5000());
+        }
+        if(speedUp_5000 == true)
+        {
+            StopCoroutine(SpeedUp5000());
         }
     }
 
@@ -140,4 +146,13 @@ public class PlayerCtrl : MonoBehaviour {
             GameManager.instance.GameOver();
         }
     }
+
+    IEnumerator SpeedUp5000()
+    {
+        speedUpText.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        speedUpText.SetActive(false);
+        speedUp_5000 = true;
+    }
+
 }
