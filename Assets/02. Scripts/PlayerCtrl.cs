@@ -74,6 +74,14 @@ public class PlayerCtrl : MonoBehaviour {
 
                 case 2:
                     rb.velocity *= -1.0f;
+                    if (rb.velocity.x > 0.0f)
+                    {
+                        rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
+                    }
+                    else
+                    {
+                        rb.velocity = new Vector3(-2.0f, 0.0f, 0.0f);
+                    }
                     break;
 
                 case 3:
