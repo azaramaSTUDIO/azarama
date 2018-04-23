@@ -86,10 +86,14 @@ public class PlayerCtrl : MonoBehaviour {
                     break;
             }
         }
-        if (gameOver == false)
+        if (!GameManager.instance.gameOver)
         {
             score += (int)(Time.deltaTime * 100);
             scoreText.text = score.ToString();
+        }
+        else
+        {
+            GetComponent<SphereCollider>().enabled = false;
         }
         if(score > 5000)
         {
