@@ -29,4 +29,9 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene(2);
     }
+
+    public void CharacterSelect()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
