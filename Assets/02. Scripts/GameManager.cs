@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool gameOver = false;
+    public GameObject gameOverUI;
+    public AudioClip gameOverSfx;
 
     public Transform spawnPoint;
     public Transform spikeSpawnPoint;
@@ -44,6 +47,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverUI.SetActive(true);
+        PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
+    }
+
     public void PlaySfx(Vector3 pos, AudioClip sfx)
     {
 
@@ -73,7 +83,6 @@ public class GameManager : MonoBehaviour
             spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj1 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
-            GameObject obj5 = Instantiate(Spikes, spikeSpawnPoint.position, spikeSpawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
 
             spawnTime = Random.Range(0.7f, 1.0f);

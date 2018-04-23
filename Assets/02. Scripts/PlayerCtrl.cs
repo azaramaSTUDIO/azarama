@@ -53,7 +53,8 @@ public class PlayerCtrl : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (!GameManager.instance.gameOver &&
+            (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             switch (controlMode)
             {
@@ -73,7 +74,14 @@ public class PlayerCtrl : MonoBehaviour {
                 case ControlMode.mode4:
                     rb.velocity = Vector3.zero;
                     Physics.gravity *= -1.0f;
-                    movePower *= -1.0f;
+                    if (Physics.gravity.x > 0)
+                    {
+                        movePower = Mathf.Abs(movePower) * -1.0f;
+                    }
+                    else
+                    {
+                        movePower = Mathf.Abs(movePower);
+                    }
                     rb.AddForce(move * movePower);
                     break;
             }
@@ -111,42 +119,14 @@ public class PlayerCtrl : MonoBehaviour {
         {
             life -= 1;
             lifeText.text = life.ToString();
-            {
-                rb.useGravity = false;
-                rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
-            }
-            rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
+            if (life <= 0) GameManager.instance.GameOver();
         }
-        if (life == 0)
-        {
-            gameOver = true;
-            gameOverText.gameObject.SetActive(true);
-            gameOverWhite.gameObject.SetActive(true);
-            gotoMainButton.gameObject.SetActive(true);
-            GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
-        }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            life -= 1;
-            lifeText.text = life.ToString();
-            {
-                rb.useGravity = false;
-                rb.velocity = new Vector3(2.0f, 0.0f, 0.0f);
-            }
-            rb.angularVelocity = Vector3.up * rotSpeed; // 캐릭터 회전시키기
-        }
-        if (life == 0)
-        {
-            gameOver = true;
-            gameOverText.gameObject.SetActive(true);
-            gameOverWhite.gameObject.SetActive(true);
-            gotoMainButton.gameObject.SetActive(true);
-            GameManager.instance.PlaySfx(gameObject.GetComponent<Transform>().position, gameOverSfx);
-        }
     }
 
 }
