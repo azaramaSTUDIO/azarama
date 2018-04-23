@@ -29,8 +29,9 @@ public class PlayerCtrl : MonoBehaviour {
     public Button gotoMainButton;
     public RawImage gameOverWhite;
     public AudioClip gameOverSfx, coinSfx;
+    public Text finalScoreText;
 
-	// Use this for initializatio
+    // Use this for initializatio
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -124,9 +125,6 @@ public class PlayerCtrl : MonoBehaviour {
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             Destroy(other.gameObject);
         }
-
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -146,6 +144,7 @@ public class PlayerCtrl : MonoBehaviour {
             GameManager.instance.GameOver();
         }
     }
+
 
     IEnumerator SpeedUp5000()
     {
