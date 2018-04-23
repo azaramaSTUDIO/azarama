@@ -15,7 +15,7 @@ public class RedBallCtrl : MonoBehaviour
 
     void Start()
     {
-        rb.velocity = Vector3.down * PlayerCtrl.speed * 2.5;
+        rb.velocity = Vector3.down * PlayerCtrl.speed * 2.5f;
     }
 
 
