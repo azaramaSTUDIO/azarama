@@ -30,7 +30,6 @@ public class CharacterManager : MonoBehaviour {
 
     private void SetCharacters(int n)
     {
-        PlayerPrefs.SetInt("Character", n);
         trs = characters.GetComponentsInChildren<Transform>();
         Debug.Log("Player is " + PlayerPrefs.GetInt("Character"));
         for (int i = 1; i < trs.Length; i++)
@@ -44,6 +43,7 @@ public class CharacterManager : MonoBehaviour {
     {
         iTween.MoveBy(characters, iTween.Hash("x", -5, "time", 0.5f));
         characterNum = characterNum + 1 > 3 ? 0 : characterNum + 1;
+        PlayerPrefs.SetInt("Character", characterNum);
         SetCharacters(characterNum);
     }
 
@@ -51,6 +51,7 @@ public class CharacterManager : MonoBehaviour {
     {
         iTween.MoveBy(characters, iTween.Hash("x", 5, "time", 0.5f));
         characterNum = characterNum - 1 < 0 ? 3 : characterNum - 1;
+        PlayerPrefs.SetInt("Character", characterNum);
         SetCharacters(characterNum);
     }
 
