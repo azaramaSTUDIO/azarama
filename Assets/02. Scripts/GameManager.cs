@@ -13,10 +13,11 @@ public class GameManager : MonoBehaviour
     public Transform stoneSpawn;
     public static GameManager instance;
     public GameObject Pipes;
-    public GameObject Coin;
+    public GameObject Coin, Heart;
     public GameObject Spikes;
     public GameObject Stone;
     public float spawnTime = 1.0f;
+    public int spawnCase;
 
     public float sfxVolume = 0.9f; // 효과음 음량
     public bool isSfxMute = false; // 효과음 음소거 여부 설정
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnSphere()
     {
-        while (true)
+        /*while (true)
         {
             spawnTime = Random.Range(0.7f, 1.0f);
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
@@ -104,7 +105,91 @@ public class GameManager : MonoBehaviour
             spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
             GameObject obj4 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(spawnTime);
+        }*/
+        while (true)
+        {
+            spawnTime = Random.Range(0.5f, 1.0f);
+            spawnCase = Random.Range(0, 20);
+            switch (spawnCase)
+            {
+                case 0:
+                spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                GameObject obj2 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    break;
+
+                case 1:
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj10 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj11 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                    }
+                    break;
+                case 2:
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj12 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj13 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                    }
+                    break;
+                case 3:
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj14 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+                    else
+                    {
+                        spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj15 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                    }
+                    break;
+
+                case 4:
+                spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                GameObject obj3 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    break;
+
+                case 8:
+                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                    GameObject obj4 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    if (PlayerCtrl.score > 5000)
+                    {
+                        stoneSpawn.position = stoneSpawn.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                        GameObject obj7 = Instantiate(Stone, stoneSpawn.position, stoneSpawn.rotation);
+                    }
+
+                    break;
+                case 12:
+                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                    GameObject obj5 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    break;
+
+                case 16:
+                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                    GameObject obj6 = Instantiate(Pipes, spawnPoint.position, spawnPoint.rotation);
+                    break;
+
+                case 19:
+                    spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                    GameObject obj8 = Instantiate(Heart, spawnPoint.position, spawnPoint.rotation);
+                    break;
+
+                default:
+                spawnPoint.position = spawnPoint.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                GameObject obj1 = Instantiate(Coin, spawnPoint.position, spawnPoint.rotation);
+                break;
+            }
+            yield return new WaitForSeconds(spawnTime);
         }
     }
-
 }
