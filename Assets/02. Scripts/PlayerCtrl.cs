@@ -11,7 +11,7 @@ public class PlayerCtrl : MonoBehaviour {
 
     private Vector3 move = Vector3.right;
 
-    bool speedUp_5000 = false;
+    public bool speedUp_5000 = false;
     public float movePower = 100.0f;
     public float rotSpeed = 5.0f;
     public static int score;
@@ -118,6 +118,8 @@ public class PlayerCtrl : MonoBehaviour {
         if(score > 5000)
         {
             speed = 2.0f;
+            BackScroll.scrollSpeed = 2.25f;
+            // 2018년 5월 03일 - 배경이 끊기는 문제 해결
             StartCoroutine(SpeedUp5000());
         }
         if(speedUp_5000 == true)
