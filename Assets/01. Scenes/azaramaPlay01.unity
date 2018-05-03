@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePower: 100
-  rotSpeed: 5
+  rotSpeed: 3
   scoreText: {fileID: 1836005682}
   lifeText: {fileID: 1228632384}
   gameOverText: {fileID: 1722350127}

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54951171892741198}
   - component: {fileID: 135588445799802312}
   - component: {fileID: 114570020575158370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4583188041755092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4152401964248974}
   - component: {fileID: 33840069329305078}
   - component: {fileID: 23294950550156522}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

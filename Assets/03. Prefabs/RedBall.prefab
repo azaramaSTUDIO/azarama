@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4934430225889340}
   - component: {fileID: 33863952735641796}
   - component: {fileID: 23987428343792126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RedBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114646711079850550}
   - component: {fileID: 54527299311533030}
   - component: {fileID: 135701125284663180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RedBall
   m_TagString: GameOverTrap
   m_Icon: {fileID: 0}

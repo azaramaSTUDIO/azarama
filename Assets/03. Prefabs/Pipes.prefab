@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4992540991943996}
   - component: {fileID: 33081481228510622}
   - component: {fileID: 23200897801674474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4495182949166644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid1_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4623762123621756}
   - component: {fileID: 33328318502418408}
   - component: {fileID: 23389696315022500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 54935056922316064}
   - component: {fileID: 136943087565846416}
   - component: {fileID: 136743749677059560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pipes
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4647423779308422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dwfaavoid1_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

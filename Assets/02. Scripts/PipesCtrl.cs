@@ -15,13 +15,4 @@ public class PipesCtrl : MonoBehaviour {
     {
         rb.velocity = Vector3.down * PlayerCtrl.speed;
     }
-
-
-    public 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01. Scenes/azaramaCharacterSelect.unity
     guid: fd95e20562c8174448ddeb9dfae4a54a
+  - enabled: 1
+    path: Assets/01. Scenes/azaramaSettings.unity
+    guid: 610e1a754ab8fef45959a5390a15a59c

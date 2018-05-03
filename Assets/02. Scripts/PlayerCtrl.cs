@@ -101,8 +101,15 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if (!GameManager.instance.gameOver)
         {
-            score += (int)(Time.deltaTime * 100);
-            scoreText.text = score.ToString();
+            if (score < 5000)
+            {
+                score += (int)(Time.deltaTime * 100);
+                scoreText.text = score.ToString();
+            } else
+            {
+                score += (int)(Time.deltaTime * 150);
+                scoreText.text = score.ToString();
+            }
         }
         else
         {
