@@ -35,7 +35,7 @@ public class PlayerCtrl : MonoBehaviour {
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        speed = 1.5f;
+        speed = 1.0f;
     }
 
     private void Start()
@@ -118,7 +118,7 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if(score > 5000)
         {
-            speed = 2.0f;
+            speed = 1.5f;
             BackScroll.scrollSpeed = 2.25f;
             // 2018년 5월 03일 - 배경이 끊기는 문제 해결
             StartCoroutine(SpeedUp5000());
