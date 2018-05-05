@@ -26,7 +26,6 @@ public class PlayerCtrl : MonoBehaviour {
     public Button gotoMainButton;
     public RawImage gameOverWhite;
     public AudioClip gameOverSfx, coinSfx;
-    public GameObject finalScoreTextUI;
     public Text finalScoreText;
 
     public GameObject[] characters;
@@ -169,12 +168,10 @@ public class PlayerCtrl : MonoBehaviour {
 
     IEnumerator SpeedUp5000()
     {
-        if (!speedUp_5000)
-        {
-            speedUpText.SetActive(true);
-            yield return new WaitForSeconds(3.0f);
-            speedUpText.SetActive(false);
-            speedUp_5000 = true;
-        }
+        speedUpText.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        speedUpText.SetActive(false);
+        speedUp_5000 = true;
     }
+
 }
