@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackScroll : MonoBehaviour {
 
-    public static float scrollSpeed = 1.5f;
+    public static float scrollSpeed = 3.0f;
     Material myMaterial;
     void Start()
     {
