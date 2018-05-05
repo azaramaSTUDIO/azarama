@@ -17,6 +17,7 @@ public class PlayerCtrl : MonoBehaviour {
     public static int score;
     public static int life;
     public static float speed;
+    public static bool magnet;
 
     public Text scoreText;
     public Text lifeText;
@@ -145,6 +146,12 @@ public class PlayerCtrl : MonoBehaviour {
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Magnet"))
+        {
+            StartCoroutine(MagnetItem());
+            GameManager.instance.PlaySfx(other.transform.position, coinSfx);
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -172,6 +179,14 @@ public class PlayerCtrl : MonoBehaviour {
         yield return new WaitForSeconds(3.0f);
         speedUpText.SetActive(false);
         speedUp_5000 = true;
+    }
+
+    IEnumerator MagnetItem()
+    {
+        magnet = true;
+        yield return new WaitForSeconds(10.0f);
+        magnet = false;
+        StopCoroutine(MagnetItem());
     }
 
 }
