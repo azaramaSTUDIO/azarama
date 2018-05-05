@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RedBallCtrl : MonoBehaviour
 {
-
     private Rigidbody rb;
 
     // Use this for initialization

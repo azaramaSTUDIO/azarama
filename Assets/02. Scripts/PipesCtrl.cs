@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PipesCtrl : MonoBehaviour {
-
+    
     private Rigidbody rb;
     
 	// Use this for initialization

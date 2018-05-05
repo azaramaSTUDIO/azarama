@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CoinCtrl : MonoBehaviour
 {
-
+    private Transform player;
+    public float speed = 3.0f;
+    public bool magnet;
+    public Vector3 disvec;
     private Rigidbody rb;
 
     // Use this for initialization
@@ -16,12 +19,19 @@ public class CoinCtrl : MonoBehaviour
     void Start()
     {
         rb.velocity = Vector3.down * PlayerCtrl.speed;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 180, 0) * Time.deltaTime);
+        if (PlayerCtrl.magnet)
+        {
+            disvec = (player.position - this.gameObject.transform.position).normalized;
+            gameObject.transform.position += disvec * Time.deltaTime * speed;
+            gameObject.transform.up = disvec;
+        } else {
+            transform.Rotate(new Vector3(0, 180, 0) * Time.deltaTime);
+        }
     }
 }
