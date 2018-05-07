@@ -36,9 +36,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4067285485594090}
-  - component: {fileID: 114646711079850550}
   - component: {fileID: 54527299311533030}
   - component: {fileID: 135701125284663180}
+  - component: {fileID: 114161460960161992}
   m_Layer: 8
   m_Name: RedBall
   m_TagString: GameOverTrap
@@ -86,6 +86,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 0d56517e7144d8b46b0e539e52be18dc, type: 3}
   m_StaticBatchInfo:
@@ -129,7 +130,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114646711079850550
+--- !u!114 &114161460960161992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976842469139396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b4d03f59f818174eaa341743ea18c98, type: 3}
+  m_Script: {fileID: 11500000, guid: 26af9e6d70444cb43b50c2697fd63542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135701125284663180

@@ -9,6 +9,8 @@ TagManager:
   - Heart
   - GameOverTrap
   - Magnet
+  - Items
+  - Obstacles
   layers:
   - Default
   - TransparentFX

@@ -2,25 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneCtrl : MonoBehaviour {
-
-    private Rigidbody rb;
-
-    // Use this for initialization
-    void Awake()
+public class StoneCtrl : ObjCtrl
+{
+    public override void OnEnable()
     {
-        rb = GetComponent<Rigidbody>();
+
+
+        if (PlayerCtrl.score > 10000)
+            rb.velocity = Vector3.down * PlayerCtrl.speed * 2 + Vector3.right * Random.Range(-1.0f, 1.0f);
+        else
+            rb.velocity = Vector3.down * PlayerCtrl.speed * 2;
     }
 
-    void Start()
-    {
-        rb.velocity = Vector3.down * PlayerCtrl.speed * 2;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Rotate(new Vector3(0, 180, 0) * Time.deltaTime);
-    }
 }

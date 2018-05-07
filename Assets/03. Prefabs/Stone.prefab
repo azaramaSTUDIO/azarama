@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114570020575158370}
   m_Layer: 8
   m_Name: Stone
-  m_TagString: Enemy
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 92d455e667540ab45a716baec73edb4f, type: 3}
   m_StaticBatchInfo:

@@ -11,13 +11,12 @@ public class PlayerCtrl : MonoBehaviour {
 
     private Vector3 move = Vector3.right;
 
-    public bool speedUp_5000 = false;
     public float movePower = 100.0f;
     public float rotSpeed = 5.0f;
-    public static int score;
+    public static int score, scoreFactor;
     public static int life;
     public static float speed;
-    public static bool magnet;
+    public static bool magnet = false;
 
     public Text scoreText;
     public Text lifeText;
@@ -31,9 +30,17 @@ public class PlayerCtrl : MonoBehaviour {
 
     public GameObject[] characters;
 
+    public Light lit;
+
+    private Transform tr;
+
+    public GameObject maginets;
+    public GameObject UHD;
+
     // Use this for initializatio
     private void Awake()
     {
+        tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         speed = 2.0f;
     }
@@ -44,7 +51,8 @@ public class PlayerCtrl : MonoBehaviour {
         controlMode = PlayerPrefs.GetInt("Character");
         Instantiate(characters[PlayerPrefs.GetInt("Character")], gameObject.GetComponent<Transform>());
             
-        score = 0;
+        score = 1;
+        scoreFactor = 100;
         life = 3;
         lifeText.text = life.ToString();
         gameOver = false;
@@ -102,31 +110,26 @@ public class PlayerCtrl : MonoBehaviour {
         }
         if (!GameManager.instance.gameOver)
         {
-            if (score < 5000)
-            {
-                score += (int)(Time.deltaTime * 100);
-                scoreText.text = score.ToString();
-            } else
-            {
-                score += (int)(Time.deltaTime * 150);
-                scoreText.text = score.ToString();
-            }
+            score += (int)(Time.deltaTime * 100);
+            scoreText.text = score.ToString();
         }
         else
         {
             GetComponent<SphereCollider>().enabled = false;
         }
-        if(score > 5000)
+
+        if (score % 5000 == 0)
         {
-            speed = 2.5f;
-            BackScroll.scrollSpeed = 3.0f;
-            // 2018년 5월 03일 - 배경이 끊기는 문제 해결
+            speed += 0.5f;
+            scoreFactor += 50;
             StartCoroutine(SpeedUp5000());
         }
-        if(speedUp_5000 == true)
-        {
-            StopCoroutine(SpeedUp5000());
-        }
+
+        lit.intensity += 0.003f * Time.deltaTime;
+
+        if (tr.position.x > 4) tr.position = tr.position + Vector3.left * 8.0f;
+        else if (tr.position.x < -4) tr.position = tr.position + Vector3.right * 8.0f;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -136,7 +139,8 @@ public class PlayerCtrl : MonoBehaviour {
             score += 100;
             scoreText.text = score.ToString();
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+            StartCoroutine(ScoreUHD(tr, "+100"));
         }
 
         if (other.gameObject.CompareTag("Heart"))
@@ -144,13 +148,14 @@ public class PlayerCtrl : MonoBehaviour {
             life++;
             lifeText.text = life.ToString();
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+            StartCoroutine(ScoreUHD(tr, "+1 LIFE"));
         }
         if (other.gameObject.CompareTag("Magnet"))
         {
             StartCoroutine(MagnetItem());
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -178,15 +183,26 @@ public class PlayerCtrl : MonoBehaviour {
         speedUpText.SetActive(true);
         yield return new WaitForSeconds(3.0f);
         speedUpText.SetActive(false);
-        speedUp_5000 = true;
     }
 
     IEnumerator MagnetItem()
     {
         magnet = true;
+        maginets.SetActive(true);
         yield return new WaitForSeconds(10.0f);
         magnet = false;
+        maginets.SetActive(false);
         StopCoroutine(MagnetItem());
+    }
+
+    IEnumerator ScoreUHD(Transform tr, string str)
+    {
+        UHD.SetActive(true);
+        UHD.transform.position = tr.position + Vector3.down * 1.3f;
+        iTween.MoveBy(UHD, iTween.Hash("y", 0.3f, "time", 1.0f, "easetype", iTween.EaseType.easeInSine));
+        UHD.GetComponentInChildren<Text>().text = str;
+        yield return new WaitForSeconds(1.0f);
+        UHD.SetActive(false);
     }
 
 }

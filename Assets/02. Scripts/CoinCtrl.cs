@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinCtrl : MonoBehaviour
+public class CoinCtrl : ObjCtrl
 {
     private Transform player;
     public float speed = 3.0f;
     public bool magnet;
     public Vector3 disvec;
-    private Rigidbody rb;
 
-    // Use this for initialization
-    void Awake()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    void Start()
+    public override void OnEnable()
     {
         rb.velocity = Vector3.down * PlayerCtrl.speed;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+
+        if (tr.position.y <= -5.0f) gameObject.SetActive(false);
+
         if (PlayerCtrl.magnet)
         {
             disvec = (player.position - this.gameObject.transform.position).normalized;
             gameObject.transform.position += disvec * Time.deltaTime * speed;
             gameObject.transform.up = disvec;
-        } else {
-            transform.Rotate(new Vector3(0, 180, 0) * Time.deltaTime);
+            tr.Rotate(rot * Time.deltaTime);
+        }
+        else
+        {
+            tr.Rotate(rot * Time.deltaTime);
         }
     }
 }
