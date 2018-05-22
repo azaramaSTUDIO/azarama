@@ -207,6 +207,7 @@ MonoBehaviour:
   gameOverWhite: {fileID: 1197720702}
   gameOverSfx: {fileID: 8300000, guid: 2a1d49e7617285049a11599fb59e03b1, type: 3}
   coinSfx: {fileID: 8300000, guid: 4e82ccd3339376744a308ecf64db6f78, type: 3}
+  enemySfx: {fileID: 8300000, guid: bb2e9d5e395f5084fb8d6295d57d38b7, type: 3}
   finalScoreText: {fileID: 0}
   characters:
   - {fileID: 100002, guid: 98e697118a620e24bb455209e5d657ff, type: 3}

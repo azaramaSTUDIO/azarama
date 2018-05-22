@@ -25,7 +25,7 @@ public class PlayerCtrl : MonoBehaviour {
     public GameObject speedUpText;
     public Button gotoMainButton;
     public RawImage gameOverWhite;
-    public AudioClip gameOverSfx, coinSfx;
+    public AudioClip gameOverSfx, coinSfx, enemySfx;
     public Text finalScoreText;
 
     public GameObject[] characters;
@@ -140,7 +140,7 @@ public class PlayerCtrl : MonoBehaviour {
             scoreText.text = score.ToString();
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             other.gameObject.SetActive(false);
-            StartCoroutine(ScoreUHD(tr, "+100"));
+            StartCoroutine(ScoreUHD(tr, "+100", Color.yellow));
         }
 
         if (other.gameObject.CompareTag("Heart"))
@@ -149,7 +149,7 @@ public class PlayerCtrl : MonoBehaviour {
             lifeText.text = life.ToString();
             GameManager.instance.PlaySfx(other.transform.position, coinSfx);
             other.gameObject.SetActive(false);
-            StartCoroutine(ScoreUHD(tr, "+1 LIFE"));
+            StartCoroutine(ScoreUHD(tr, "+1 LIFE", Color.yellow));
         }
         if (other.gameObject.CompareTag("Magnet"))
         {
@@ -166,13 +166,15 @@ public class PlayerCtrl : MonoBehaviour {
             life -= 1;
             lifeText.text = life.ToString();
             if (life <= 0) GameManager.instance.GameOver();
-
+            GameManager.instance.PlaySfx(tr.position, enemySfx);
+            StartCoroutine(ScoreUHD(tr, "-1 Life", Color.red));
             //collision.gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("GameOverTrap"))
         {
             life = 0;
             lifeText.text = life.ToString();
+            StartCoroutine(ScoreUHD(tr, "Dead", Color.red));
             GameManager.instance.GameOver();
         }
     }
@@ -195,12 +197,13 @@ public class PlayerCtrl : MonoBehaviour {
         StopCoroutine(MagnetItem());
     }
 
-    IEnumerator ScoreUHD(Transform tr, string str)
+    IEnumerator ScoreUHD(Transform tr, string str, Color color)
     {
         UHD.SetActive(true);
         UHD.transform.position = tr.position + Vector3.down * 1.3f;
         iTween.MoveBy(UHD, iTween.Hash("y", 0.3f, "time", 1.0f, "easetype", iTween.EaseType.easeInSine));
         UHD.GetComponentInChildren<Text>().text = str;
+        UHD.GetComponentInChildren<Text>().color = color;
         yield return new WaitForSeconds(1.0f);
         UHD.SetActive(false);
     }
