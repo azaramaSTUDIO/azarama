@@ -34,6 +34,7 @@ public class CharacterManager : MonoBehaviour {
         }
 
         PlayerPrefs.SetInt("Character", characterNum);
+        characterText.text = characterStrings[characterNum];
         SetCharacters(PlayerPrefs.GetInt("Character"));
 
     }
