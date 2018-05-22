@@ -19,17 +19,20 @@ public class GameManager : MonoBehaviour
 
 
     public float sfxVolume = 0.9f; // 효과음 음량
-    public bool isSfxMute = false; // 효과음 음소거 여부 설정
+    public bool isSfxMute; // 효과음 음소거 여부 설정
 
     // Use this for initialization
     void Awake()
     {
+        // DontDestroyOnLoad(this);
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
 
     void Start()
     {
+        if (PlayerPrefs.GetInt("Sfx", 1) == 0) isSfxMute = true;
+
         foreach (Transform tr in GameObject.FindGameObjectWithTag("Items").transform)
         {
             items.Add(tr);
