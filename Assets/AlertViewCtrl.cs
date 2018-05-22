@@ -11,8 +11,8 @@ public class AlertViewCtrl : MonoBehaviour {
 }
 	// Update is called once per frame
 	
-    [SerializeField]
-    [SerializeField]
+    //[SerializeField]
+    //[SerializeField]
     
 
     
