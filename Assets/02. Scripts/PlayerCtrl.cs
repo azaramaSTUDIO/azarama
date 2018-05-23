@@ -51,7 +51,8 @@ public class PlayerCtrl : MonoBehaviour {
         Debug.Log("Game Character is " + PlayerPrefs.GetInt("Character"));
         controlMode = PlayerPrefs.GetInt("Character");
         Instantiate(characters[PlayerPrefs.GetInt("Character")], gameObject.GetComponent<Transform>());
-            
+
+        magnet = false;
         score = 1;
         scoreFactor = 100;
         life = 3;
