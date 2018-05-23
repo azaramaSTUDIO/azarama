@@ -214,7 +214,22 @@ public class PlayerCtrl : MonoBehaviour {
 
     public void Ranking()
     {
-        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("Google OK");
+                // Report 성공
+                // 그에 따른 처리
+            }
+            else
+            {
+                Debug.Log("Google NO");
+                // Report 실패
+                // 그에 따른 처리
+            }
+        });
+        
 
         string board = "";
 
@@ -238,13 +253,14 @@ public class PlayerCtrl : MonoBehaviour {
         {
             if (success)
             {
-
-                PlayGamesPlatform.Instance.ShowLeaderboardUI();
+                Debug.Log("Google Ranking OK");
+                PlayGamesPlatform.Instance.ShowLeaderboardUI(board);
                 // Report 성공
                 // 그에 따른 처리
             }
             else
             {
+                Debug.Log("Google Ranking NO");
                 // Report 실패
                 // 그에 따른 처리
             }
