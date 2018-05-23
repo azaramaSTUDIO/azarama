@@ -1,2 +1,9 @@
 lastUpgrade=00950
 proj.pluginVersion=0.9.50
+proj.AppId=893480490169
+and.BundleId=com.azaramaSTUDIO.azarama
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e893480490169%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.azaramaSTUDIO.azarama%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%ed%9d%b0%ec%83%89+%ec%95%84%ec%9e%90%eb%9d%bc%eb%a7%88+%eb%9e%ad%ed%82%b9+--%3e%0d%0a++%3cstring+name%3d%22leaderboard%22+translatable%3d%22false%22%3eCgkIuanZvIAaEAIQAQ%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%ed%8c%8c%eb%9e%80%ec%83%89+%ec%95%84%ec%9e%90%eb%9d%bc%eb%a7%88+%eb%9e%ad%ed%82%b9+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_2%22+translatable%3d%22false%22%3eCgkIuanZvIAaEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%eb%85%b9%ec%83%89+%ec%95%84%ec%9e%90%eb%9d%bc%eb%a7%88+%eb%9e%ad%ed%82%b9+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_3%22+translatable%3d%22false%22%3eCgkIuanZvIAaEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+%eb%b3%b4%eb%9d%bc%ec%83%89+%ec%95%84%ec%9e%90%eb%9d%bc%eb%a7%88+%eb%9e%ad%ed%82%b9+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_4%22+translatable%3d%22false%22%3eCgkIuanZvIAaEAIQBA%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=
+android.SetupDone=true

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
 
 public class PlayerCtrl : MonoBehaviour {
 
@@ -206,6 +207,48 @@ public class PlayerCtrl : MonoBehaviour {
         UHD.GetComponentInChildren<Text>().color = color;
         yield return new WaitForSeconds(1.0f);
         UHD.SetActive(false);
+    }
+
+    // 구글 플레이 스토어 랭킹 시스템 관련 코드
+
+    public void Ranking()
+    {
+        PlayGamesPlatform.Activate();
+
+        string board = "";
+
+        switch(PlayerPrefs.GetInt("Character"))
+        {
+            case 0:
+                board = GPGSIds.leaderboard; // 흰색 아자라마 랭킹 보드
+                break;
+            case 1:
+                board = GPGSIds.leaderboard_2; // 파란색 아자라마 랭킹 보드
+                break;
+            case 2:
+                board = GPGSIds.leaderboard_3; // 녹색 아자라마 랭킹 보드
+                break;
+            case 3:
+                board = GPGSIds.leaderboard_4; // 보라색 아자라마 랭킹 보드
+                break;
+        }
+
+        PlayGamesPlatform.Instance.ReportScore(score, board, (bool success) =>
+        {
+            if (success)
+            {
+
+                PlayGamesPlatform.Instance.ShowLeaderboardUI();
+                // Report 성공
+                // 그에 따른 처리
+            }
+            else
+            {
+                // Report 실패
+                // 그에 따른 처리
+            }
+        });
+        
     }
 
 }
