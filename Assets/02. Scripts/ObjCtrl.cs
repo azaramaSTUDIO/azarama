@@ -24,7 +24,7 @@ public class ObjCtrl : MonoBehaviour {
     public virtual void Update()
     {
         tr.Rotate(rot * Time.deltaTime);
-        if (tr.position.y <= -5.0f) gameObject.SetActive(false);
+        if (tr.position.y <= -5.0f || tr.position.x > 5.0f || tr.position.x < -5.0f) gameObject.SetActive(false);
     }
 
     public virtual void OnDisable()
